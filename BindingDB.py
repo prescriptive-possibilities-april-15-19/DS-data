@@ -1,3 +1,7 @@
+'''there are 2 reads in this 
+
+most of the with opens are writes. 
+'''
 import json
 
 stopnext = False
@@ -13,6 +17,13 @@ i = 0
 j = 1
 
 with open('BindingDB_All_2D.sdf', 'r', encoding="utf8") as file:
+''' https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes
+
+Ligand-Target-Affinity Datasets*
+    All data in BindingdDB
+        *PROBABLY IMPROVE BY CHOOSING* `BindingDB_All_2019m3.tsv.zip`
+
+'''
     line = file.readline()
     count = int(line.strip())
     while line:
@@ -44,6 +55,9 @@ with open('BindingDB_All_2D.sdf', 'r', encoding="utf8") as file:
         j += 1
 
 with open("BndDB_ligand2.json", "w") as fp:
+    '''
+    
+    '''
     fp.write(json.dumps(data))
 
 used_monomerid = []
@@ -60,6 +74,13 @@ with open("BndDB_ligand_CID.txt", "w") as fp:
 data_pdb = {}
 data_seq = []
 with open("pdb_seqres.txt", "r") as fp:
+    ''' http://www.rcsb.org/#Subcategory-download_sequences
+
+		PRECISELY: this one - ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt
+
+	
+	 ''' 
+    
     line = fp.readline()
     v1 = ""
     v2 = ""
